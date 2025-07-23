@@ -7,6 +7,7 @@ project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/ma
 project_blurb: "[Dolphin Emulator]({{ project_url }}) lets you play GameCube and Wii games with various graphical enhancements and other features are available to improve your game experience."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
+project_categories: "Games"
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "latest"}
