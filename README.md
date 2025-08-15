@@ -425,4 +425,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **15.08.25:** - Rebase to Debian Trixie for updated Dolphin, update controller mapping.
 * **18.06.25:** - Initial Version.
