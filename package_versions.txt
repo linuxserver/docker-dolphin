@@ -980,7 +980,7 @@ libxinerama1                                                                  2:
 libxkbcommon-x11-0                                                            1.7.0-2                                    deb                         
 libxkbcommon0                                                                 1.7.0-2                                    deb                         
 libxkbfile1                                                                   1:1.1.0-1+b4                               deb                         
-libxml2                                                                       2.12.7+dfsg+really2.9.14-2.1               deb                         
+libxml2                                                                       2.12.7+dfsg+really2.9.14-2.1+deb13u1       deb                         
 libxmu6                                                                       2:1.1.3-3+b4                               deb                         
 libxmuu1                                                                      2:1.1.3-3+b4                               deb                         
 libxpm4                                                                       1:3.5.17-1+b3                              deb                         
@@ -1106,7 +1106,7 @@ tar                                                                           1.
 tomli                                                                         2.0.1                                      python                      
 typeguard                                                                     4.3.0                                      python                      
 typing-extensions                                                             4.12.2                                     python                      
-typing-extensions                                                             4.14.1                                     python                      
+typing-extensions                                                             4.15.0                                     python                      
 tzdata                                                                        2025b-4                                    deb                         
 udev                                                                          257.7-1                                    deb                         
 util-linux                                                                    2.41-5                                     deb                         
