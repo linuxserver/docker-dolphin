@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Copy default controller config
+if [ ! -f "${HOME}/.config/dolphin-emu/GCPadNew.ini" ]; then
+  mkdir -p "${HOME}/.config/dolphin-emu/"
+  cp /defaults/GCPadNew.ini "${HOME}/.config/dolphin-emu/"
+fi
+
+foot -e /usr/games/dolphin-emu ${DOLPHIN_CLI}
