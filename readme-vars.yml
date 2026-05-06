@@ -11,7 +11,6 @@ project_categories: "Games"
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "latest"}
-  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # development version
 development_versions: false
 # container parameters
@@ -35,6 +34,8 @@ app_setup_block: |
   The application can be accessed at:
 
   * https://yourhost:3001/
+
+  **On container creation you may need to enter/exit controller configuration in order for gamepads to work**
 # init diagram
 init_diagram: |
   "dolphin:latest": {
@@ -107,6 +108,7 @@ init_diagram: |
   "dolphin:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "06.05.26:", desc: "Build dolphin from source, ingest latest versions, remove aarch64 support."}
   - {date: "05.03.26:", desc: "Make Wayland default disable with PIXELFLUX_WAYLAND=false."}
   - {date: "20.12.25:", desc: "Add Wayland init logic."}
   - {date: "15.08.25:", desc: "Rebase to Debian Trixie for updated Dolphin, update controller mapping."}
