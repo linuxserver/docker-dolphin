@@ -27,7 +27,7 @@ pipeline {
     DEV_DOCKERHUB_IMAGE = 'lsiodev/dolphin'
     PR_DOCKERHUB_IMAGE = 'lspipepr/dolphin'
     DIST_IMAGE = 'ubuntu'
-    MULTIARCH = 'true'
+    MULTIARCH = 'false'
     CI = 'true'
     CI_WEB = 'true'
     CI_PORT = '3001'
@@ -143,12 +143,14 @@ pipeline {
     /* ########################
        External Release Tagging
        ######################## */
-    // If this is an os release set release type to none to indicate no external release
-    stage("Set ENV os"){
+    // If this is a custom command to determine version use that command
+    stage("Set tag custom bash"){
       steps{
         script{
-          env.EXT_RELEASE = env.PACKAGE_TAG
-          env.RELEASE_LINK = 'none'
+          env.EXT_RELEASE = sh(
+            script: ''' curl -sL 'https://dolphin-emu.org/download/' | awk -F '(dolphin-|-x86_64.flatpak)' '/-x86_64.flatpak/ {print $3;exit}' ''',
+            returnStdout: true).trim()
+            env.RELEASE_LINK = 'custom_command'
         }
       }
     }
@@ -1020,7 +1022,7 @@ pipeline {
                   "type": "commit",\
                   "tagger": {"name": "LinuxServer-CI","email": "ci@linuxserver.io","date": "'${GITHUB_DATE}'"}}'
               echo "Pushing New release for Tag"
-              echo "Updating base packages to ${PACKAGE_TAG}" > releasebody.json
+              echo "Updating to ${EXT_RELEASE_CLEAN}" > releasebody.json
               jq -n \
                 --arg tag_name "$META_TAG" \
                 --arg target_commitish "master" \

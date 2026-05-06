@@ -2,7 +2,8 @@
 
 # jenkins variables
 project_name: docker-dolphin
-external_type: os
+external_type: na
+custom_version_command: "curl -sL 'https://dolphin-emu.org/download/' | awk -F '(dolphin-|-x86_64.flatpak)' '/-x86_64.flatpak/ {print $3;exit}'"
 release_type: stable
 release_tag: latest
 ls_branch: master
@@ -16,7 +17,7 @@ repo_vars:
   - DEV_DOCKERHUB_IMAGE = 'lsiodev/dolphin'
   - PR_DOCKERHUB_IMAGE = 'lspipepr/dolphin'
   - DIST_IMAGE = 'ubuntu'
-  - MULTIARCH = 'true'
+  - MULTIARCH = 'false'
   - CI = 'true'
   - CI_WEB = 'true'
   - CI_PORT = '3001'
