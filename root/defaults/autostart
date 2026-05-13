@@ -4,6 +4,7 @@
 if [ ! -f "${HOME}/.config/dolphin-emu/GCPadNew.ini" ]; then
   mkdir -p "${HOME}/.config/dolphin-emu/"
   cp /defaults/GCPadNew.ini "${HOME}/.config/dolphin-emu/"
+  cp /defaults/Dolphin.ini "${HOME}/.config/dolphin-emu/"
 fi
 
-xterm -e /usr/games/dolphin-emu ${DOLPHIN_CLI}
+/usr/games/dolphin-emu ${DOLPHIN_CLI}
