@@ -3,7 +3,8 @@
 # jenkins variables
 project_name: docker-dolphin
 external_type: na
-custom_version_command: "curl -sL 'https://dolphin-emu.org/download/' | awk -F '(dolphin-|-x86_64.flatpak)' '/-x86_64.flatpak/ {print $3;exit}'"
+custom_version_command: |
+  curl -sL 'https://raw.githubusercontent.com/flathub/org.DolphinEmu.dolphin-emu/refs/heads/master/org.DolphinEmu.dolphin-emu.metainfo.xml' | awk -F'(<release version="|")' '/release version/ {print $2;exit}'
 release_type: stable
 release_tag: latest
 ls_branch: master

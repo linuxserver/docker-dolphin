@@ -33,8 +33,8 @@ RUN \
 RUN \
   echo "**** build dolphin ****" && \
   if [ -z ${DOLPHIN_VERSION+x} ]; then \
-    DOLPHIN_VERSION=$(curl -sL 'https://dolphin-emu.org/download/' \
-    | awk -F '(dolphin-|-x86_64.flatpak)' '/-x86_64.flatpak/ {print $3;exit}'); \
+    DOLPHIN_VERSION=$(curl -sL 'https://raw.githubusercontent.com/flathub/org.DolphinEmu.dolphin-emu/refs/heads/master/org.DolphinEmu.dolphin-emu.metainfo.xml' \
+    | awk -F'(<release version="|")' '/release version/ {print $2;exit}'); \
   fi && \
   mkdir /root-out && \
   git clone https://github.com/dolphin-emu/dolphin.git && \

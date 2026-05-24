@@ -149,7 +149,8 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sL 'https://dolphin-emu.org/download/' | awk -F '(dolphin-|-x86_64.flatpak)' '/-x86_64.flatpak/ {print $3;exit}' ''',
+            script: ''' curl -sL 'https://raw.githubusercontent.com/flathub/org.DolphinEmu.dolphin-emu/refs/heads/master/org.DolphinEmu.dolphin-emu.metainfo.xml' | awk -F'(<release version="|")' '/release version/ {print $2;exit}'
+ ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
